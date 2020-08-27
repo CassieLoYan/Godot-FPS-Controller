@@ -1,17 +1,17 @@
 extends KinematicBody
 
-const MAX_SPEED = 25
-const MAX_FALL_SPEED = 30
-const ACCEL_TIME = 0.2
-const DECEL_TIME = 0.1
-const COYOTE_TIME = 0.2
-const SLIDE_TIME = 1
-const JUMP_BUFFERING_TIME = 0.15
-const GRAVITY = 1
-const JUMP_SPEED = 30
-const SPRINT_MODIFIER = 1.25
-const CROUCH_MODIFIER = 0.3
-const SLIDE_MODIFIER = 2
+export(int) var  MAX_WALK_SPEED = 20
+export(int) var MAX_FALL_SPEED = 30
+export(int) var JUMP_SPEED = 30
+export(float) var ACCEL_TIME = 0.2
+export(float) var DECEL_TIME = 0.1
+export(float) var COYOTE_TIME = 0.2
+export(float) var SLIDE_TIME = 1
+export(float) var JUMP_BUFFERING_TIME = 0.15
+export(float) var GRAVITY = 1
+export(float) var SPRINT_MODIFIER = 1.25
+export(float) var CROUCH_MODIFIER = 0.3
+export(float) var SLIDE_MODIFIER = 2
 
 onready var tween = $Tween
 onready var cam = $Camera
@@ -49,7 +49,7 @@ func _move():
 	var movement = Vector3()
 	movement.x = int(Input.is_action_pressed("right"))-int(Input.is_action_pressed("left"))
 	movement.z = int(Input.is_action_pressed("backwards"))-int(Input.is_action_pressed("forwards"))
-	speed = 20
+	speed = MAX_WALK_SPEED
 #	if movement.x != 0 or movement.z != 0:
 #		if acel_timer.is_stopped():
 #			acel_timer.start()
@@ -90,7 +90,6 @@ func _move():
 		if Input.is_action_pressed("run"):
 			sliding = true
 			slide_timer.start(SLIDE_TIME)
-			print("Sliding",sliding)
 		crouching = true
 	elif Input.is_action_just_released("crouch"):
 		stopped_crouching = true
