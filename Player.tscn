@@ -42,7 +42,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38503, 0 )
 enabled = true
 cast_to = Vector3( 0, 1, 0 )
 
-[node name="Vaulting" type="RayCast" parent="."]
+[node name="WallInFront" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.300408, 0 )
+enabled = true
 cast_to = Vector3( 0, 0, -1.5 )
+
+[node name="CheckVaultingSpace" type="RayCast" parent="."]
+cast_to = Vector3( 0, 2, -2 )
 [connection signal="timeout" from="SlideTimer" to="." method="_on_SlideTimer_timeout"]
