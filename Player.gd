@@ -87,7 +87,7 @@ func _move():
 		tween.interpolate_property(collision_shape.shape, "height", collision_shape.shape.height, 0.5, 0.2)
 		tween.interpolate_property(collision_shape.shape, "radius", collision_shape.shape.height, 0.3, 0.2)
 		tween.start()
-		if Input.is_action_pressed("run"):
+		if Input.is_action_pressed("run") and !crouching:
 			sliding = true
 			slide_timer.start(SLIDE_TIME)
 		crouching = true
