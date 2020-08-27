@@ -5,6 +5,7 @@ const MAX_FALL_SPEED = 30
 const ACCEL_TIME = 0.2
 const DECEL_TIME = 0.1
 const COYOTE_TIME = 0.2
+const SLIDE_TIME = 1
 const JUMP_BUFFERING_TIME = 0.15
 const GRAVITY = 1
 const JUMP_SPEED = 30
@@ -88,7 +89,7 @@ func _move():
 		tween.start()
 		if Input.is_action_pressed("run"):
 			sliding = true
-			slide_timer.start()
+			slide_timer.start(SLIDE_TIME)
 			print("Sliding",sliding)
 		crouching = true
 	elif Input.is_action_just_released("crouch"):
@@ -110,7 +111,6 @@ func _move():
 		tween.interpolate_property(cam, "fov", cam.fov, 70, 0.1)
 		running = false
 	tween.start()
-
 
 func _on_SlideTimer_timeout():
 	sliding = false
