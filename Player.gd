@@ -9,7 +9,7 @@ const JUMP_BUFFERING_TIME = 0.15
 const GRAVITY = 1
 const JUMP_SPEED = 30
 const SPRINT_MODIFIER = 1.25
-const CROUCH_MODIFIER = 0.6
+const CROUCH_MODIFIER = 0.3
 const SLIDE_MODIFIER = 2
 
 onready var tween = $Tween
@@ -74,7 +74,7 @@ func _move():
 	if jump_buffer.time_left > 0 and coyote_time.time_left > 0:
 		vert_speed = JUMP_SPEED
 	else:
-		# !! OPTIONAL || # 
+## FEELS BAD DO NOT USE ##
 		#if vert_speed > 1:
 		#	if Input.is_action_just_released("jump"):
 		#		vert_speed*=0.3
