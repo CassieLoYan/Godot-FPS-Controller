@@ -80,7 +80,7 @@ func _move():
 		#	if Input.is_action_just_released("jump"):
 		#		vert_speed*=0.3
 		vert_speed = -MAX_FALL_SPEED if vert_speed < - MAX_FALL_SPEED else vert_speed
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_just_pressed("crouch") and !roof_check.is_colliding():
 		tween.remove_all()
 		#tween.interpolate_property(cam, "transform:origin", transform.origin, crouch, 0.2)
 		cam.transform.origin = crouch
