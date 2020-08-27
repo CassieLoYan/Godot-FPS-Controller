@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="FPSController"
+run/main_scene="res://TestMap.tscn"
 config/icon="res://icon.png"
 
 [input]
